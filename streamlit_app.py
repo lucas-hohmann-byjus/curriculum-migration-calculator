@@ -23,6 +23,6 @@ else:
     dst = None
 
 if dst:
-    st.header(f"O aluno pode ser migrado para a aula '{curriculum} C{dst}'")
+    st.header(f"A próxima aula do aluno deverá ser a '1:M {curriculum} C{dst}'")
 else:
     st.title("AULA INVÁLIDA")
