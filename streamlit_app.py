@@ -23,6 +23,7 @@ else:
     dst = None
 
 if dst:
-    st.header(f"O aluno pode ser migrado para a aula '{curriculum} C{dst}'")
+    st.markdown(f"## A próxima aula do aluno deverá ser:")
+    st.markdown(f"##### *1\:M - {curriculum} C{dst}*")
 else:
     st.title("AULA INVÁLIDA")
