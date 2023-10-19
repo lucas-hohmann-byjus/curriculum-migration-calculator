@@ -24,6 +24,6 @@ else:
 
 if dst:
     st.markdown(f"## A próxima aula do aluno deverá ser:")
-    st.markdown(f"##### *1\:M - {curriculum} C{dst}*")
+    st.markdown(f"##### *1\:1 - {curriculum} C{dst}*")
 else:
     st.title("AULA INVÁLIDA")
