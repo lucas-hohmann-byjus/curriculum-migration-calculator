@@ -30,6 +30,7 @@ CONCEPTS = {
     "PRO": {},
 }
 
+# 1:M para 1:1
 MAPPING = {
     "BEG": [
         (1, 1),
