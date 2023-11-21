@@ -15,11 +15,11 @@ with st.sidebar:
     st.markdown("# Tipo")
     migration_type = st.selectbox(
         "Tipo de Migração",
-        ["Entre Currículos", "Conclusão de Curso"],
+        ["Modalidade", "Conclusão de Curso"],
     )
     st.markdown("# Dados do Aluno")
 
-    if migration_type == "Entre Currículos":
+    if migration_type == "Modalidade":
         curriculum = st.selectbox(
             "Currículo",
             ["BEG", "INT", "ADV", "PRO"],
@@ -44,7 +44,7 @@ with st.sidebar:
             ["1:1", "1:M"],
         )
 
-if migration_type == "Entre Currículos":
+if migration_type == "Modalidade":
     # Find destination
     for src, dst in MIGRATIONS_INTRA[curriculum]:
         if src == class_number:
