@@ -32,11 +32,15 @@ def print_successful_migration(modality: str, curriculum: str, class_: int) -> N
 
 
 def print_concepts_delta(
-    src_class: int, dst_class: int, curriculum: str, direction: str
+    src_class: int,
+    dst_class: int,
+    curriculum: str,
+    src_moda: str,
+    dst_moda: str,
 ) -> None:
     concepts = []
 
-    for concept, values in CONCEPTS[curriculum][direction].items():
+    for concept, values in CONCEPTS[curriculum][f"{src_moda} > {dst_moda}"].items():
         if src_class >= values["classes"][0]:
             continue
 
@@ -80,9 +84,7 @@ def main() -> None:
             print_successful_migration(dst_moda, dst_curr, dst_class)
 
             if src_curr == dst_curr:
-                print_concepts_delta(
-                    src_class, dst_class, src_curr, f"{src_moda} > {dst_moda}"
-                )
+                print_concepts_delta(src_class, dst_class, src_curr, src_moda, dst_moda)
 
             break
     else:
