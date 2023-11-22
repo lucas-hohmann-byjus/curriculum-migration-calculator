@@ -46,7 +46,7 @@ with st.sidebar:
 
 if migration_type == "Entre Currículos":
     # Find destination
-    for src, dst in MAPPING[curriculum]:
+    for src, dst in MIGRATIONS_INTER[curriculum]:
         if src == class_number:
             break
     else:

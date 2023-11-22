@@ -31,7 +31,7 @@ CONCEPTS = {
 }
 
 # 1:M para 1:1
-MAPPING = {
+MIGRATIONS_INTER = {
     "BEG": [
         (1, 1),
         (2, 2),
