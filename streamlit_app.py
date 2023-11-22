@@ -81,6 +81,12 @@ if migration_type == "Entre Currículos":
 
     else:
         st.error(f"EQUIVALÊNCIA NÃO DISPONÍVEL", icon="🚨")
+        st.markdown(
+            f"#### O caso deve ser avaliado pelo time de Currículo através do formulário: "
+        )
+        st.markdown(
+            f"[Solicitação de Alteração de Currículo - Curso de Programação](https://docs.google.com/forms/d/e/1FAIpQLSc_6p8cp8B7b0KtK0sKa_pgYXBuHLSKZK-es9ZudQfeawSQXg/viewform)"
+        )
 
 else:
     next_class = CONTINUATIONS[curriculum][modality]
