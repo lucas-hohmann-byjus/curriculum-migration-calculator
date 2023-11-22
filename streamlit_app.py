@@ -15,20 +15,15 @@ def print_unavailable_migration() -> None:
     st.error(f"EQUIVALÊNCIA NÃO DISPONÍVEL", icon="🚨")
 
     string = f"#### "
-    string += f"O caso deve ser avaliado pelo time de Currículo através do formulário:"
-    st.markdown(string)
-
-    string = f"[Solicitação de Alteração de Currículo - Curso de Programação]"
-    string += f"(https://docs.google.com/forms/d/e/1FAIpQLSc_6p8cp8B7b0KtK0sKa_pgYXBuHLSKZK-es9ZudQfeawSQXg/viewform)"
+    string += f"O caso deve ser avaliado pelo time de Currículo, através de um chamado para Orientação Pedagógica."
     st.markdown(string)
 
 
 def print_successful_migration(modality: str, curriculum: str, class_: int) -> None:
     modality = modality.replace(":", "\:")
 
-    st.markdown(f"## A próxima aula do aluno deverá ser:")
-    st.markdown(f"# {modality} - {curriculum} C{class_}")
-    st.divider()
+    st.markdown(f"#### A próxima aula do aluno deverá ser:")
+    st.markdown(f"## {modality} - {curriculum} C{class_}")
 
 
 def print_concepts_delta(
@@ -60,23 +55,47 @@ def print_concepts_delta(
 
 
 def main() -> None:
-    with st.sidebar:
-        st.markdown("# Origem")
+    st.markdown(
+        "<style>.block-container {padding: 2rem 1rem 2rem;} hr {margin: 1em 0px;}</style>",
+        unsafe_allow_html=True,
+    )
+
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
+
+    with col1:
+        st.markdown("### Origem")
+
         subset: dict = MAPPING
         src_curr = st.selectbox("Currículo", subset.keys(), key="src_curr")
+
+    with col2:
+        st.markdown("### ⠀")
+
         subset = subset[src_curr]
         src_moda = st.selectbox("Modalidade", subset.keys(), key="src_moda")
+
+    with col3:
+        st.markdown("### ⠀")
+
         current_class_ = st.number_input(
             "Última aula concluída",
             min_value=1,
             max_value=144,
         )
 
-        st.markdown("# Destino")
+    with col5:
+        st.markdown("### Destino")
+
         subset = subset[src_moda]
         dst_curr = st.selectbox("Currículo", subset.keys(), key="dst_curr")
+
+    with col6:
+        st.markdown("### ⠀")
+
         subset = subset[dst_curr]
         dst_moda = st.selectbox("Modalidade", subset.keys(), key="dst_moda")
+
+    st.divider()
 
     subset = subset[dst_moda]
     for src_class, dst_class in subset:
