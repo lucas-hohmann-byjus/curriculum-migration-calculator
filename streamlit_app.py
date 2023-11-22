@@ -37,7 +37,7 @@ with st.sidebar:
     else:
         curriculum = st.selectbox(
             "Currículos",
-            ["BEG -> INT", "INT -> ADV", "ADV -> PRO"],
+            ["BEG > INT", "INT > ADV", "ADV > PRO"],
         )
         modality = st.selectbox(
             "Modalidade",
