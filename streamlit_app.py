@@ -99,7 +99,7 @@ def main() -> None:
 
     subset = subset[dst_moda]
     for src_class, dst_class in subset:
-        if src_class == current_class_:
+        if src_class == current_class_ and dst_class:
             print_successful_migration(dst_moda, dst_curr, dst_class)
 
             if src_curr == dst_curr:
