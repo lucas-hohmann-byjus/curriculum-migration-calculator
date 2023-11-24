@@ -1,7 +1,11 @@
 MAPPING = {
     "BEG": {
         "1:1": {
-            "BEG": {"1:M": [(144, None)]},
+            # "BEG": {
+            #     "1:M": [
+            #         (144, None),
+            #     ]
+            # },
             "INT": {
                 "1:1": [
                     (1, 1),
@@ -234,7 +238,82 @@ MAPPING = {
             },
             "INT": {
                 "1:M": [
-                    (144, 53),
+                    (1, 1),
+                    (2, 1),
+                    (3, 1),
+                    (4, 1),
+                    (5, 1),
+                    (6, 1),
+                    (7, 1),
+                    (8, 1),
+                    (9, 1),
+                    (10, 1),
+                    (11, 1),
+                    (12, 1),
+                    (13, 1),
+                    (14, 1),
+                    (15, 1),
+                    (16, 1),
+                    (17, 1),
+                    (18, 1),
+                    (19, 1),
+                    (20, 1),
+                    (21, 1),
+                    (22, 1),
+                    (23, 1),
+                    (24, 1),
+                    (25, 1),
+                    (26, 1),
+                    (27, 1),
+                    (28, 1),
+                    (29, 1),
+                    (30, 1),
+                    (31, 27),
+                    (32, 27),
+                    (33, 27),
+                    (34, 27),
+                    (35, 27),
+                    (36, 27),
+                    (37, 27),
+                    (38, 27),
+                    (39, 27),
+                    (40, 27),
+                    (41, 27),
+                    (42, 27),
+                    (43, 27),
+                    (44, 27),
+                    (45, 27),
+                    (46, 27),
+                    (47, 27),
+                    (48, 27),
+                    (49, 27),
+                    (50, 27),
+                    (51, 27),
+                    (52, 27),
+                    (53, 27),
+                    (54, 27),
+                    (55, 27),
+                    (56, 27),
+                    (57, 27),
+                    (58, 27),
+                    (59, 27),
+                    (60, 27),
+                    (61, 53),
+                    (62, 53),
+                    (63, 53),
+                    (64, 53),
+                    (65, 53),
+                    (66, 53),
+                    (67, 53),
+                    (68, 53),
+                    (69, 53),
+                    (70, 53),
+                    (71, 53),
+                    (72, 53),
+                    (73, 53),
+                    (74, 53),
+                    (75, 53),
+                    (76, 53),
                 ],
             },
         },
@@ -1448,7 +1527,7 @@ MAPPING = {
                     (144, 100),
                 ]
             },
-            "PRO": {"1:M": [[(144, None)]]},
+            "PRO": {"1:M": [(144, None)]},
         },
         "1:M": {
             "ADV": {"1:M": []},
@@ -1604,46 +1683,115 @@ MAPPING = {
     },
 }
 
+
 CONCEPTS = {
     "BEG": {
-        "1:1 > 1:M": {},
-        "1:M > 1:1": {},
+        "1:1": {
+            "BEG": {
+                "1:M": {},
+            },
+            "INT": {
+                "1:1": {},
+            },
+        },
+        "1:M": {
+            "BEG": {
+                "1:1": {},
+            },
+            "INT": {
+                "1:M": {},
+            },
+        },
     },
     "INT": {
-        "1:1 > 1:M": {},
-        "1:M > 1:1": {
-            "functions": {
-                "classes": (47, 38),
-                "description": "Conceitos de Funções",
+        "1:1": {
+            "ADV": {
+                "1:1": {},
             },
-            "applab": {
-                "classes": (53, 41),
-                "description": "Introdução a plataforma Laboratório de Aplicativos code.org",
+            "BEG": {
+                "1:1": {},
             },
-            "angles_and_speed": {
-                "classes": (58, 45),
-                "description": "Conceitos de Ângulos e Velocidades",
+            "INT": {
+                "1:M": {},
             },
-            "variables": {
-                "classes": (72, 56),
-                "description": "Conceitos de Variáveis",
+        },
+        "1:M": {
+            "ADV": {
+                "1:M": {},
             },
-            "matrices": {
-                "classes": (73, 57),
-                "description": "Conceitos de Matrizes e Arrays",
+            "BEG": {
+                "1:M": {},
             },
-            "thunkable": {
-                "classes": (96, 81),
-                "description": "Introdução a plataforma Thunkable",
+            "INT": {
+                "1:1": {
+                    "functions": {
+                        "classes": (47, 38),
+                        "description": "Conceitos de Funções",
+                    },
+                    "applab": {
+                        "classes": (53, 41),
+                        "description": "Introdução a plataforma Laboratório de Aplicativos code.org",
+                    },
+                    "angles_and_speed": {
+                        "classes": (58, 45),
+                        "description": "Conceitos de Ângulos e Velocidades",
+                    },
+                    "variables": {
+                        "classes": (72, 56),
+                        "description": "Conceitos de Variáveis",
+                    },
+                    "matrices": {
+                        "classes": (73, 57),
+                        "description": "Conceitos de Matrizes e Arrays",
+                    },
+                    "thunkable": {
+                        "classes": (96, 81),
+                        "description": "Introdução a plataforma Thunkable",
+                    },
+                },
             },
         },
     },
     "ADV": {
-        "1:1 > 1:M": {},
-        "1:M > 1:1": {},
+        "1:1": {
+            "ADV": {
+                "1:M": {},
+            },
+            "INT": {
+                "1:1": {},
+            },
+            "PRO": {
+                "1:1": {},
+            },
+        },
+        "1:M": {
+            "ADV": {
+                "1:1": {},
+            },
+            "INT": {
+                "1:M": {},
+            },
+            "PRO": {
+                "1:M": {},
+            },
+        },
     },
     "PRO": {
-        "1:1 > 1:M": {},
-        "1:M > 1:1": {},
+        "1:1": {
+            "ADV": {
+                "1:1": {},
+            },
+            "PRO": {
+                "1:M": {},
+            },
+        },
+        "1:M": {
+            "ADV": {
+                "1:M": {},
+            },
+            "PRO": {
+                "1:1": {},
+            },
+        },
     },
 }
