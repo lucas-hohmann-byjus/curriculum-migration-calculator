@@ -26,32 +26,25 @@ def print_successful_migration(modality: str, curriculum: str, class_: int) -> N
     st.markdown(f"## {modality} - {curriculum} C{class_}")
 
 
-def print_concepts_delta(
+def get_delta(
     src_class: int,
     dst_class: int,
-    curriculum: str,
+    src_curr: str,
+    dst_curr: str,
     src_moda: str,
     dst_moda: str,
-) -> None:
+) -> list:
     concepts = []
 
-    for concept, values in CONCEPTS[curriculum][f"{src_moda} > {dst_moda}"].items():
-        if src_class >= values["classes"][0]:
-            continue
-
-        if dst_class <= values["classes"][1]:
+    for concept, values in CONCEPTS[src_curr][src_moda][dst_curr][dst_moda].items():
+        if src_class >= values["classes"][0] or dst_class <= values["classes"][1]:
             continue
 
         description = f"- {values['description']}"
         description += f"\n\t- *(A professora pode utilizar as atividades da aula C{values['classes'][1]} - 1:1 como referência)*"
         concepts.append(description)
 
-    if concepts:
-        st.warning("É necessário uma aula BOOSTER.", icon="⚠️")
-        st.markdown("#### A professora deve revisar os seguintes conceitos:")
-        st.markdown("\n".join(concepts))
-    else:
-        st.success("Não há necessidade de aula BOOSTER.", icon="✅")
+    return concepts
 
 
 def main() -> None:
@@ -60,7 +53,7 @@ def main() -> None:
         unsafe_allow_html=True,
     )
 
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    col1, col2, col3, _, col5, col6 = st.columns(6)
 
     with col1:
         st.markdown("### Origem")
@@ -102,8 +95,21 @@ def main() -> None:
         if src_class == current_class_ and dst_class:
             print_successful_migration(dst_moda, dst_curr, dst_class)
 
-            if src_curr == dst_curr:
-                print_concepts_delta(src_class, dst_class, src_curr, src_moda, dst_moda)
+            concepts = get_delta(
+                src_class,
+                dst_class,
+                src_curr,
+                dst_curr,
+                src_moda,
+                dst_moda,
+            )
+
+            if concepts:
+                st.warning("É necessário uma aula BOOSTER.", icon="⚠️")
+                st.markdown("#### A professora deve revisar os seguintes conceitos:")
+                st.markdown("\n".join(concepts))
+            else:
+                st.success("Não há necessidade de aula BOOSTER.", icon="✅")
 
             break
     else:
